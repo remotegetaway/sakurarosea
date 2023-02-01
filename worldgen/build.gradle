@@ -1,0 +1,12 @@
+archivesBaseName = "sakurarosea-worldgen"
+
+loom {
+	accessWidenerPath = file("src/main/resources/sakurarosea-worldgen.accesswidener")
+}
+
+dependencies {
+	// TerraBlender is our biome API overlord.
+	modImplementation "com.github.glitchfiend:TerraBlender-fabric:${terrablender_version}"
+
+	implementation project(path: ':common')
+}

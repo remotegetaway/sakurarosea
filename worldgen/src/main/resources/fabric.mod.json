@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "sakurarosea-worldgen",
+  "version": "${version}",
+  "name": "Sakura Rosea: World Generation",
+  "license": "LGPL-3.0-only",
+  "icon": "assets/sakurarosea/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.remotegetaway.sakurarosea.SakuraRoseaWorldgen"
+    ],
+    "terrablender": [
+      "com.remotegetaway.sakurarosea.biomegen.SakuraRoseaTerraBlenderGeneration"
+    ]
+  },
+  "accessWidener": "sakurarosea-worldgen.accesswidener",
+  "mixins": [
+    "mixins.sakurarosea-worldgen.json"
+  ],
+  "custom": {
+    "modmenu": {
+      "parent": "sakurarosea"
+    }
+  },
+  "depends": {
+    "terrablender": "*"
+  }
+}

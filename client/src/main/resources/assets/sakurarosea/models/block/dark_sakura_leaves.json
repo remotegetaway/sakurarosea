@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "sakurarosea:block/sakura_leaves_dark"
+  }
+}

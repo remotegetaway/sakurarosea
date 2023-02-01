@@ -1,0 +1,41 @@
+{
+  "version": "1.0.1",
+  "sets": {
+    "sakura_log": {
+      "base": "sakurarosea:sakura_log",
+      "textures": {
+        "top": "sakurarosea:block/sakura_log_top"
+      }
+    },
+    "sakura": {
+      "base": "sakurarosea:sakura_planks",
+      "vanilla_pieces": {
+        "extrapieces:stairs": "sakurarosea:sakura_stairs",
+        "extrapieces:slab": "sakurarosea:sakura_slab",
+        "extrapieces:fence": "sakurarosea:sakura_fence",
+        "extrapieces:fence_gate": "sakurarosea:sakura_fence_gate"
+      },
+      "uncraftable": [
+        "extrapieces:wall"
+      ]
+    },
+    "stripped_sakura_log": {
+      "base": "sakurarosea:stripped_sakura_log",
+      "textures": {
+        "top": "sakurarosea:block/stripped_sakura_log_top"
+      }
+    },
+    "sakura_wood": {
+      "base": "sakurarosea:sakura_wood",
+      "textures": {
+        "main": "sakurarosea:block/sakura_log"
+      }
+    },
+    "stripped_sakura_wood": {
+      "base": "sakurarosea:stripped_sakura_wood",
+      "textures": {
+        "main": "sakurarosea:block/stripped_sakura_log"
+      }
+    }
+  }
+}

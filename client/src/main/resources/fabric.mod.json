@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "sakurarosea-client",
+  "version": "${version}",
+  "name": "Sakura Rosea: Client",
+  "license": "LGPL-3.0-only",
+  "icon": "assets/sakurarosea/icon.png",
+  "environment": "client",
+  "mixins": [
+  ],
+  "entrypoints": {
+    "client": [
+      "com.remotegetaway.sakurarosea.SakuraRoseaClient"
+    ]
+  },
+  "custom": {
+    "modmenu": {
+      "parent": "sakurarosea"
+    }
+  }
+}

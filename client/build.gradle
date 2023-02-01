@@ -1,0 +1,8 @@
+archivesBaseName = "sakurarosea-client"
+
+loom {
+}
+
+dependencies {
+	implementation project(path: ':common')
+}

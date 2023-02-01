@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "sakurarosea-common",
+  "version": "${version}",
+  "name": "Sakura Rosea: Common",
+  "license": "LGPL-3.0-only",
+  "icon": "assets/sakurarosea/icon.png",
+  "environment": "*",
+  "mixins": [
+    "mixins.sakurarosea-common.json"
+  ],
+  "entrypoints": {
+    "main": [
+      "com.remotegetaway.sakurarosea.SakuraRosea"
+    ],
+    "terraform-biome-remapper": [
+      "com.remotegetaway.sakurarosea.init.helpers.SakuraRoseaBiomeRemappings"
+    ],
+    "fabric-datagen": [
+      "com.remotegetaway.sakurarosea.data.SakuraRoseaDatagen"
+    ]
+  },
+  "custom": {
+    "extrapieces:piecepack": "extrapieces.sakurarosea.json",
+    "modmenu": {
+      "parent": "sakurarosea"
+    }
+  }
+}

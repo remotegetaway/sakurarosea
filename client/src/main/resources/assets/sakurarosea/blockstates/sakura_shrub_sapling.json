@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "stage=0": {
+      "model": "sakurarosea:block/sakura_shrub_sapling"
+    },
+    "stage=1": {
+      "model": "sakurarosea:block/sakura_shrub_sapling"
+    }
+  }
+}

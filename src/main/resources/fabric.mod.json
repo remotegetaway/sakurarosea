@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "sakurarosea",
+  "version": "2.0.0",
+  "name": "Sakura Rosea",
+  "description": "A special Sakura tree mod.",
+  "authors": [
+    "remote_getaway"
+  ],
+  "contributors": [
+    "TerraformersMC"
+  ],
+  "contact": {
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/sakura-rosea",
+    "sources": "https://github.com/remote_getaway/sr1.19.2"
+  },
+  "license": "LGPL-3.0-only",
+  "icon": "assets/sakurarosea/icon.png",
+  "environment": "*",
+  "depends": {
+    "fabricloader": ">=0.13.3",
+    "fabric": ">=0.68.0",
+    "minecraft": ">1.19.2 <1.20",
+    "java": ">=17"
+  }
+}
