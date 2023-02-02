@@ -28,18 +28,12 @@ public class SakuraRoseaItemGroups {
 	 * These items are the last Vanilla item of a "similar" type to items we add to Vanilla groups.
 	 * Each is used to build a collection of items which will be inserted below the Vanilla item.
 	 */
-	private static final Item BUILDING_STONE_ITEMS = Items.MOSSY_STONE_BRICK_WALL;
+
 	private static final Item BUILDING_WOOD_ITEMS = Items.MANGROVE_BUTTON;
 	private static final Item FUNCTIONAL_SIGN = Items.MANGROVE_HANGING_SIGN;
-	private static final Item NATURAL_CACTUS = Items.CACTUS;
-	private static final Item NATURAL_DIRT_ITEMS = Items.FARMLAND;
 	private static final Item NATURAL_LEAVES = Items.MANGROVE_LEAVES;
 	private static final Item NATURAL_LOG = Items.MANGROVE_LOG;
 	private static final Item NATURAL_SAPLING = Items.MANGROVE_PROPAGULE;
-	private static final Item NATURAL_SAND = Items.RED_SANDSTONE;
-	private static final Item NATURAL_STONE = Items.STONE;
-	private static final Item NATURAL_TALL_VEGETATION = Items.LARGE_FERN;
-	private static final Item NATURAL_VEGETATION = Items.FERN;
 	private static final Item TOOLS_BOAT = Items.MANGROVE_CHEST_BOAT;
 
 	static {
@@ -50,12 +44,6 @@ public class SakuraRoseaItemGroups {
 		 * Since Minecraft 1.19.3, items are often in multiple item groups...
 		 */
 
-		// BUILDING BLOCKS
-
-
-		// NATURAL
-
-
 		// Leaves
 		addGroupEntry(SakuraRoseaBlocks.DARK_SAKURA_LEAVES, ItemGroups.NATURAL, NATURAL_LEAVES);
 		addGroupEntry(SakuraRoseaBlocks.SAKURA_SHRUB_LEAVES, ItemGroups.NATURAL, NATURAL_LEAVES);
@@ -65,7 +53,6 @@ public class SakuraRoseaItemGroups {
 		addGroupEntry(SakuraRoseaBlocks.DARK_SAKURA_SAPLING, ItemGroups.NATURAL, NATURAL_SAPLING);
 		addGroupEntry(SakuraRoseaBlocks.SAKURA_SAPLING, ItemGroups.NATURAL, NATURAL_SAPLING);
 		addGroupEntry(SakuraRoseaBlocks.SAKURA_SHRUB_SAPLING, ItemGroups.NATURAL, NATURAL_SAPLING);
-
 
 
 		// Add WoodItems
@@ -113,56 +100,6 @@ public class SakuraRoseaItemGroups {
 				}).build();
 	}
 
-	private static void addDirtEntries(DirtBlocks blocks) {
-		// NATURAL
-
-		// Dirt Items
-		addGroupEntry(blocks.getGrassBlock(), ItemGroups.NATURAL, NATURAL_DIRT_ITEMS);
-		addGroupEntry(blocks.getPodzol(), ItemGroups.NATURAL, NATURAL_DIRT_ITEMS);
-		addGroupEntry(blocks.getDirtPath(), ItemGroups.NATURAL, NATURAL_DIRT_ITEMS);
-		addGroupEntry(blocks.getDirt(), ItemGroups.NATURAL, NATURAL_DIRT_ITEMS);
-		addGroupEntry(blocks.getFarmland(), ItemGroups.NATURAL, NATURAL_DIRT_ITEMS);
-	}
-
-	private static void addStoneEntries(StoneItems items) {
-		// BUILDING BLOCKS
-
-		// Stone Items
-		addGroupEntry(items.plain.full, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
-		addGroupEntry(items.plain.stairs, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
-		addGroupEntry(items.plain.slab, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
-		addGroupEntry(items.plain.wall, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
-		addGroupEntry(items.pressurePlate, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
-		addGroupEntry(items.button, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
-		addGroupEntry(items.cobblestone.full, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
-		addGroupEntry(items.cobblestone.stairs, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
-		addGroupEntry(items.cobblestone.slab, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
-		addGroupEntry(items.cobblestone.wall, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
-		addGroupEntry(items.mossyCobblestone.full, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
-		addGroupEntry(items.mossyCobblestone.stairs, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
-		addGroupEntry(items.mossyCobblestone.slab, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
-		addGroupEntry(items.mossyCobblestone.wall, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
-		addGroupEntry(items.smooth.full, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
-		addGroupEntry(items.smooth.stairs, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
-		addGroupEntry(items.smooth.slab, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
-		addGroupEntry(items.smooth.wall, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
-		addGroupEntry(items.bricks.full, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
-		addGroupEntry(items.crackedBricks, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
-		addGroupEntry(items.bricks.stairs, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
-		addGroupEntry(items.bricks.slab, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
-		addGroupEntry(items.bricks.wall, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
-		addGroupEntry(items.chiseledBricks, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
-		addGroupEntry(items.mossyBricks.full, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
-		addGroupEntry(items.mossyBricks.stairs, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
-		addGroupEntry(items.mossyBricks.slab, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
-		addGroupEntry(items.mossyBricks.wall, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
-
-
-		// NATURAL
-
-		// Stone Items
-		addGroupEntry(items.plain.full, ItemGroups.NATURAL, NATURAL_STONE);
-	}
 
 	private static void addWoodEntries(WoodItems items) {
 		// BUILDING BLOCKS
