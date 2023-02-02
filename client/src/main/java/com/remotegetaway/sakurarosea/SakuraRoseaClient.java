@@ -46,10 +46,6 @@ public class SakuraRoseaClient implements ClientModInitializer {
 		// Load the client config if it hasn't been loaded already
 		SakuraRosea.getConfigManager().getClientConfig();
 
-		ColorProviderRegistry.BLOCK.register(
-				FOLIAGE_BLOCK_COLORS,
-				SakuraRoseaBlocks.SAKURA_SHRUB_LEAVES
-		);
 
 		BlockRenderLayerMap.INSTANCE.putBlocks(
 				DOOR_BLOCK_LAYER,
@@ -78,12 +74,6 @@ public class SakuraRoseaClient implements ClientModInitializer {
 				SakuraRoseaBlocks.SAKURA.sign,
 				SakuraRoseaBlocks.SAKURA.hangingSign
 		);
-
-		ColorProviderRegistry.ITEM.register(
-				FOLIAGE_ITEM_COLORS,
-				SakuraRoseaItems.SAKURA_SHRUB_LEAVES
-		);
-
 
 
 		ColorProviderRegistry.ITEM.register(
