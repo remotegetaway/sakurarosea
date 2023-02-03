@@ -17,11 +17,8 @@ public class SakuraRoseaConfigManager {
 	private final Path biomeConfigBackupPath;
 	private final Path clientConfigPath;
 	private final Path clientConfigBackupPath;
-	private final Path generalConfigPath;
-	private final Path generalConfigBackupPath;
 	private SakuraRoseaBiomeConfig biomeConfig;
 	private SakuraRoseaClientConfig clientConfig;
-	private SakuraRoseaGeneralConfig generalConfig;
 
 	private static final Gson GSON = new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES).setPrettyPrinting().create();
 
@@ -45,8 +42,6 @@ public class SakuraRoseaConfigManager {
 			clientConfigBackupPath = null;
 		}
 
-		generalConfigPath = configDirectory.resolve("general.json");
-		generalConfigBackupPath = configDirectory.resolve("general-invalid-syntax.json");
 	}
 
 	private static <T> T loadConfig(Path configPath, T defaults, Class<T> clazz, Path backupPath) {
@@ -135,11 +130,4 @@ public class SakuraRoseaConfigManager {
 		return clientConfig;
 	}
 
-	public SakuraRoseaGeneralConfig getGeneralConfig() {
-		if (generalConfig == null) {
-			generalConfig = loadConfig(generalConfigPath, new SakuraRoseaGeneralConfig(), SakuraRoseaGeneralConfig.class, generalConfigBackupPath);
-		}
-
-		return generalConfig;
-	}
 }

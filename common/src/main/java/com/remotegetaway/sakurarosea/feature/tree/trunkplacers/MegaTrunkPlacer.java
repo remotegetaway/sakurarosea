@@ -47,13 +47,6 @@ public class MegaTrunkPlacer extends TrunkPlacer {
 		// Place the trunk
 		BlockPos.Mutable mutable = new BlockPos.Mutable();
 
-		for(int i = 0; i < trunkHeight; ++i) {
-			setLog(world, mutable, replacer, getState(random, mutable, treeFeatureConfig, QuarterLogBlock.BarkSide.NORTHWEST), pos, 0, i, 0);
-			setLog(world, mutable, replacer, getState(random, mutable, treeFeatureConfig, QuarterLogBlock.BarkSide.NORTHEAST), pos, 1, i, 0);
-			setLog(world, mutable, replacer, getState(random, mutable, treeFeatureConfig, QuarterLogBlock.BarkSide.SOUTHEAST), pos, 1, i, 1);
-			setLog(world, mutable, replacer, getState(random, mutable, treeFeatureConfig, QuarterLogBlock.BarkSide.SOUTHWEST), pos, 0, i, 1);
-		}
-
 		BlockStateProvider rootsProvider = treeFeatureConfig.trunkProvider;
 
 		if (treeFeatureConfig instanceof QuarteredMegaTreeConfig) {
@@ -65,13 +58,6 @@ public class MegaTrunkPlacer extends TrunkPlacer {
 		return ImmutableList.of(new FoliagePlacer.TreeNode(pos.up(trunkHeight), 0, true));
 	}
 
-	static BlockState getState(Random random, BlockPos pos, TreeFeatureConfig config, QuarterLogBlock.BarkSide side) {
-		if (config instanceof QuarteredMegaTreeConfig && SakuraRosea.getConfigManager().getGeneralConfig().areQuarterLogsEnabled()) {
-			return ((QuarteredMegaTreeConfig) config).quarteredTrunkProvider.get(random, pos).with(QuarterLogBlock.BARK_SIDE, side);
-		} else {
-			return config.trunkProvider.get(random, pos);
-		}
-	}
 
 	private static void setLog(TestableWorld testableWorld, BlockPos.Mutable mutable, BiConsumer<BlockPos, BlockState> replacer, BlockState state, BlockPos blockPos, int i, int j, int k) {
 		mutable.set(blockPos, i, j, k);

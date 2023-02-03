@@ -2,8 +2,7 @@ package com.remotegetaway.sakurarosea.data;
 
 import com.remotegetaway.sakurarosea.SakuraRosea;
 import com.remotegetaway.sakurarosea.init.SakuraRoseaItems;
-import com.remotegetaway.sakurarosea.init.helpers.StoneItems;
-import com.remotegetaway.sakurarosea.init.helpers.StoneVariantItems;
+
 import com.remotegetaway.sakurarosea.init.helpers.WoodItems;
 import com.remotegetaway.sakurarosea.tag.SakuraRoseaItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -119,103 +118,6 @@ public class SakuraRoseaRecipeProvider extends FabricRecipeProvider {
 				.input('L', woodItem.strippedLog)
 				.criterion("has_logs", InventoryChangedCriterion.Conditions.items(woodItem.strippedLog))
 				.offerTo(exporter);
-		}
-	}
-
-	private void generateStone(Consumer<RecipeJsonProvider> exporter, StoneItems stoneItem) {
-		if (stoneItem.bricks != null) {
-			generateStoneVariant(exporter, stoneItem.bricks, stoneItem.plain.full);
-
-			new ShapedRecipeJsonBuilder(RecipeCategory.BUILDING_BLOCKS, stoneItem.bricks.full, 4)
-				.group("bricks")
-				.pattern("SS")
-				.pattern("SS")
-				.input('S', stoneItem.plain.full)
-				.criterion("has_stone", InventoryChangedCriterion.Conditions.items(stoneItem.plain.full))
-				.offerTo(exporter);
-			offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, stoneItem.bricks.full, stoneItem.plain.full);
-
-			offerChiseledBlockRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, stoneItem.chiseledBricks, stoneItem.bricks.slab);
-			offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, stoneItem.chiseledBricks, stoneItem.bricks.full);
-			offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, stoneItem.chiseledBricks, stoneItem.plain.full);
-
-			offerCrackingRecipe(exporter, stoneItem.crackedBricks, stoneItem.bricks.full);
-		}
-		if (stoneItem.cobblestone != null) {
-			generateStoneVariant(exporter, stoneItem.cobblestone, null);
-		}
-		if (stoneItem.mossyBricks != null) {
-			generateStoneVariant(exporter, stoneItem.mossyBricks, null);
-
-			new ShapelessRecipeJsonBuilder(RecipeCategory.BUILDING_BLOCKS, stoneItem.mossyBricks.full, 1)
-				.group("mossy_bricks")
-				.input(stoneItem.bricks.full)
-				.input(SakuraRoseaItemTags.MOSSY_INGREDIENTS)
-				.criterion("has_stone", InventoryChangedCriterion.Conditions.items(stoneItem.bricks.full))
-				.offerTo(exporter);
-		}
-		if (stoneItem.mossyCobblestone != null) {
-			generateStoneVariant(exporter, stoneItem.mossyCobblestone, null);
-
-			new ShapelessRecipeJsonBuilder(RecipeCategory.BUILDING_BLOCKS, stoneItem.mossyCobblestone.full, 1)
-				.group("mossy_cobblestone")
-				.input(stoneItem.cobblestone.full)
-				.input(SakuraRoseaItemTags.MOSSY_INGREDIENTS)
-				.criterion("has_stone", InventoryChangedCriterion.Conditions.items(stoneItem.cobblestone.full))
-				.offerTo(exporter);
-		}
-		if (stoneItem.plain != null) {
-			generateStoneVariant(exporter, stoneItem.plain, null);
-
-			if (stoneItem.cobblestone != null) {
-				offerSmelting(exporter,
-					Collections.singletonList(stoneItem.cobblestone.full),
-					RecipeCategory.BUILDING_BLOCKS,
-					stoneItem.plain.full,
-					0.1f, 200, "stone");
-			}
-
-			new ShapelessRecipeJsonBuilder(RecipeCategory.REDSTONE, stoneItem.button, 1)
-				.group("stone_button")
-				.input(stoneItem.plain.full)
-				.criterion("has_stone", InventoryChangedCriterion.Conditions.items(stoneItem.plain.full))
-				.offerTo(exporter);
-
-			new ShapedRecipeJsonBuilder(RecipeCategory.REDSTONE, stoneItem.pressurePlate, 1)
-				.group("stone_pressure_plate")
-				.pattern("SS")
-				.input('S', stoneItem.plain.full)
-				.criterion("has_stone", InventoryChangedCriterion.Conditions.items(stoneItem.plain.full))
-				.offerTo(exporter);
-		}
-		if (stoneItem.smooth != null) {
-			generateStoneVariant(exporter, stoneItem.smooth, null);
-
-			if (stoneItem.plain != null) {
-				offerSmelting(exporter,
-					Collections.singletonList(stoneItem.plain.full),
-					RecipeCategory.BUILDING_BLOCKS,
-					stoneItem.smooth.full,
-					0.1f, 200, "stone");
-			}
-		}
-	}
-
-	private void generateStoneVariant(Consumer<RecipeJsonProvider> exporter, StoneVariantItems stoneVariantItem, @Nullable BlockItem cutPlainItem) {
-		offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, stoneVariantItem.slab, stoneVariantItem.full);
-		createStairsRecipe(stoneVariantItem.stairs, Ingredient.ofItems(stoneVariantItem.full))
-			.criterion("has_stone", InventoryChangedCriterion.Conditions.items(stoneVariantItem.full))
-			.offerTo(exporter);  // ?? so lame there is no offerStairsRecipe() !!
-		offerWallRecipe(exporter, RecipeCategory.DECORATIONS, stoneVariantItem.wall, stoneVariantItem.full);
-
-		offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, stoneVariantItem.slab, stoneVariantItem.full, 2);
-		offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, stoneVariantItem.stairs, stoneVariantItem.full);
-		offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, stoneVariantItem.wall, stoneVariantItem.full);
-
-		if (cutPlainItem != null) {
-			offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, stoneVariantItem.slab, cutPlainItem, 2);
-			offerStonecuttingRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, stoneVariantItem.stairs, cutPlainItem);
-			offerStonecuttingRecipe(exporter, RecipeCategory.DECORATIONS, stoneVariantItem.wall, cutPlainItem);
 		}
 	}
 

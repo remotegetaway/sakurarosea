@@ -11,7 +11,7 @@ import net.minecraft.world.biome.SpawnSettings;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 
-public class JapaneseMapleForestBiomes {
+public class SakuraForestBiomes {
 	public static Biome create(FabricDynamicRegistryProvider.Entries entries) {
 		return new Biome.Builder()
 				.generationSettings(createGenerationSettings(entries))
@@ -22,7 +22,7 @@ public class JapaneseMapleForestBiomes {
 				.effects(SakuraRoseaBiomes.createDefaultBiomeEffects()
 						.waterColor(0x3f76e4)
 						.waterFogColor(0x50533)
-						.grassColor(0x7aab1a)
+						.grassColor(0x679931)
 						.foliageColor(0x7aab1a)
 						.build()
 				)

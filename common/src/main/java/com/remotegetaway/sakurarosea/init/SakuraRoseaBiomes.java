@@ -1,7 +1,7 @@
 package com.remotegetaway.sakurarosea.init;
 
 import com.remotegetaway.sakurarosea.SakuraRosea;
-import com.remotegetaway.sakurarosea.biome.JapaneseMapleForestBiomes;
+import com.remotegetaway.sakurarosea.biome.SakuraForestBiomes;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricDynamicRegistryProvider;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
@@ -27,7 +27,7 @@ public class SakuraRoseaBiomes {
 	);
 
 	public static void populate(FabricDynamicRegistryProvider.Entries entries) {
-		entries.add(SAKURA_FOREST, JapaneseMapleForestBiomes.create(entries));
+		entries.add(SAKURA_FOREST, SakuraForestBiomes.create(entries));
 	}
 
 	public static void addBasicFeatures(GenerationSettings.LookupBackedBuilder generationSettings) {

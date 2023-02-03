@@ -20,7 +20,7 @@ public class SakuraRoseaTerraBlenderGeneration extends Region implements Runnabl
 	SakuraRoseaBiomeConfig BIOME_CONFIG;
 
 	public SakuraRoseaTerraBlenderGeneration() {
-		super(new Identifier(SakuraRosea.MOD_ID, "overworld"), RegionType.OVERWORLD, 13);
+		super(new Identifier(SakuraRosea.MOD_ID, "overworld"), RegionType.OVERWORLD, 3);
 	}
 
 	@Override

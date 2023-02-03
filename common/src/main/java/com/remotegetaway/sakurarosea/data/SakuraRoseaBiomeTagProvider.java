@@ -48,7 +48,6 @@ public class SakuraRoseaBiomeTagProvider extends FabricTagProvider<Biome> {
 		getOrCreateTagBuilder(TagKey.of(RegistryKeys.BIOME, BiomeTags.MINESHAFT_HAS_STRUCTURE.id()))
 			.addOptional(SakuraRoseaBiomes.SAKURA_FOREST);
 
-
 		getOrCreateTagBuilder(TagKey.of(RegistryKeys.BIOME, BiomeTags.RUINED_PORTAL_STANDARD_HAS_STRUCTURE.id()))
 			.addOptional(SakuraRoseaBiomes.SAKURA_FOREST);
 

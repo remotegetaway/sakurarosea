@@ -21,7 +21,6 @@ public class SakuraRosea implements ModInitializer {
 	private static final ArrayList<Runnable> runnables = new ArrayList<>(1);
 
 	private static void register() {
-		CONFIG_MANAGER.getGeneralConfig();
 
 		SakuraRoseaBlocks.init();
 		SakuraRoseaItems.init();
