@@ -9,9 +9,9 @@ import net.minecraft.util.Identifier;
 public final class SakuraRoseaItemTags {
 
 	public static final TagKey<Item> SAKURA_LOGS = SakuraRoseaItemTags.of("sakura_logs");
-	public static final TagKey<Item> MOSSY_INGREDIENTS = SakuraRoseaItemTags.of("mossy_ingredients");
 	public static final TagKey<Item> PLANKS_THAT_BURN = SakuraRoseaItemTags.of(Identifier.of("c", "planks_that_burn"));
 
+	public static final TagKey<Item> WHITE_BRICKS = SakuraRoseaItemTags.of(Identifier.of("b", "white_bricks"));
 	@SuppressWarnings("UnnecessaryReturnStatement")
 	private SakuraRoseaItemTags() {
 		return;

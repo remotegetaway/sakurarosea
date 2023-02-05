@@ -8,7 +8,7 @@ import net.minecraft.util.Identifier;
 
 public final class SakuraRoseaBlockTags {
 
-
+	public static final TagKey<Block> WHITE_BRICKS = SakuraRoseaBlockTags.of("white_bricks");
 	public static final TagKey<Block> SAKURA_LOGS = SakuraRoseaBlockTags.of("sakura_logs");
 
 	@SuppressWarnings("UnnecessaryReturnStatement")

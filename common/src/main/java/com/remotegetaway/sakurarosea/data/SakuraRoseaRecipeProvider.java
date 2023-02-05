@@ -3,6 +3,8 @@ package com.remotegetaway.sakurarosea.data;
 import com.remotegetaway.sakurarosea.SakuraRosea;
 import com.remotegetaway.sakurarosea.init.SakuraRoseaItems;
 
+import com.remotegetaway.sakurarosea.init.helpers.StoneItems;
+import com.remotegetaway.sakurarosea.init.helpers.StoneVariantItems;
 import com.remotegetaway.sakurarosea.init.helpers.WoodItems;
 import com.remotegetaway.sakurarosea.tag.SakuraRoseaItemTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -32,14 +34,17 @@ public class SakuraRoseaRecipeProvider extends FabricRecipeProvider {
 	public void generate(Consumer<RecipeJsonProvider> exporter) {
 		// misc. recipes
 		new ShapelessRecipeJsonBuilder(RecipeCategory.DECORATIONS, SakuraRoseaItems.SAKURA_SAPLING, 1)
-			.input(Items.OAK_SAPLING)
-			.input(Items.STICK)
-			.criterion("has_bryce_sapling", InventoryChangedCriterion.Conditions.items(SakuraRoseaItems.SAKURA_SAPLING))
-			.offerTo(exporter, new Identifier(SakuraRosea.MOD_ID, "sakura_sapling_from_oak_sapling"));
+				.input(Items.OAK_SAPLING)
+				.input(Items.STICK)
+				.criterion("has_bryce_sapling", InventoryChangedCriterion.Conditions.items(SakuraRoseaItems.SAKURA_SAPLING))
+				.offerTo(exporter, new Identifier(SakuraRosea.MOD_ID, "sakura_sapling_from_oak_sapling"));
 
 
 		// wood building block recipes
 		generateWood(exporter, SakuraRoseaItems.SAKURA, SakuraRoseaItemTags.SAKURA_LOGS);
+
+		// stone building block recipes
+		generateStone(exporter, SakuraRoseaItems.WHITE_BRICKS);
 
 	}
 
@@ -52,22 +57,22 @@ public class SakuraRoseaRecipeProvider extends FabricRecipeProvider {
 		}
 
 		new ShapelessRecipeJsonBuilder(RecipeCategory.REDSTONE, woodItem.button, 1)
-			.group("wooden_button")
-			.input(woodItem.planks)
-			.criterion("has_planks", InventoryChangedCriterion.Conditions.items(woodItem.planks))
-			.offerTo(exporter);
+				.group("wooden_button")
+				.input(woodItem.planks)
+				.criterion("has_planks", InventoryChangedCriterion.Conditions.items(woodItem.planks))
+				.offerTo(exporter);
 
 		createDoorRecipe(woodItem.door, Ingredient.ofItems(woodItem.planks))
-			.criterion("has_planks", InventoryChangedCriterion.Conditions.items(woodItem.planks))
-			.offerTo(exporter);
+				.criterion("has_planks", InventoryChangedCriterion.Conditions.items(woodItem.planks))
+				.offerTo(exporter);
 
 		createFenceRecipe(woodItem.fence, Ingredient.ofItems(woodItem.planks))
-			.criterion("has_planks", InventoryChangedCriterion.Conditions.items(woodItem.planks))
-			.offerTo(exporter);
+				.criterion("has_planks", InventoryChangedCriterion.Conditions.items(woodItem.planks))
+				.offerTo(exporter);
 
 		createFenceGateRecipe(woodItem.fenceGate, Ingredient.ofItems(woodItem.planks))
-			.criterion("has_planks", InventoryChangedCriterion.Conditions.items(woodItem.planks))
-			.offerTo(exporter);
+				.criterion("has_planks", InventoryChangedCriterion.Conditions.items(woodItem.planks))
+				.offerTo(exporter);
 
 		offerHangingSignRecipe(exporter, woodItem.hangingSign, woodItem.planks);
 
@@ -76,18 +81,18 @@ public class SakuraRoseaRecipeProvider extends FabricRecipeProvider {
 		offerPressurePlateRecipe(exporter, woodItem.pressurePlate, woodItem.planks);
 
 		createSignRecipe(woodItem.sign, Ingredient.ofItems(woodItem.planks))
-			.criterion("has_planks", InventoryChangedCriterion.Conditions.items(woodItem.planks))
-			.offerTo(exporter);
+				.criterion("has_planks", InventoryChangedCriterion.Conditions.items(woodItem.planks))
+				.offerTo(exporter);
 
 		offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, woodItem.slab, woodItem.planks);
 
 		createStairsRecipe(woodItem.stairs, Ingredient.ofItems(woodItem.planks))
-			.criterion("has_planks", InventoryChangedCriterion.Conditions.items(woodItem.planks))
-			.offerTo(exporter);
+				.criterion("has_planks", InventoryChangedCriterion.Conditions.items(woodItem.planks))
+				.offerTo(exporter);
 
 		createTrapdoorRecipe(woodItem.trapdoor, Ingredient.ofItems(woodItem.planks))
-			.criterion("has_planks", InventoryChangedCriterion.Conditions.items(woodItem.planks))
-			.offerTo(exporter);
+				.criterion("has_planks", InventoryChangedCriterion.Conditions.items(woodItem.planks))
+				.offerTo(exporter);
 
 		// leaf piles are an optional wood feature
 		if (woodItem.hasLeafPile()) {
@@ -103,26 +108,39 @@ public class SakuraRoseaRecipeProvider extends FabricRecipeProvider {
 		if (woodItem.hasWood()) {
 			assert (woodItem.wood != null);  // it's not null; this is just for IDEA
 			new ShapedRecipeJsonBuilder(RecipeCategory.BUILDING_BLOCKS, woodItem.wood, 3)
-				.group("bark")
-				.pattern("LL")
-				.pattern("LL")
-				.input('L', woodItem.log)
-				.criterion("has_logs", InventoryChangedCriterion.Conditions.items(woodItem.log))
-				.offerTo(exporter);
+					.group("bark")
+					.pattern("LL")
+					.pattern("LL")
+					.input('L', woodItem.log)
+					.criterion("has_logs", InventoryChangedCriterion.Conditions.items(woodItem.log))
+					.offerTo(exporter);
 
 			assert (woodItem.strippedWood != null);  // it's not null; this is just for IDEA
 			new ShapedRecipeJsonBuilder(RecipeCategory.BUILDING_BLOCKS, woodItem.strippedWood, 3)
-				.group("bark")
-				.pattern("LL")
-				.pattern("LL")
-				.input('L', woodItem.strippedLog)
-				.criterion("has_logs", InventoryChangedCriterion.Conditions.items(woodItem.strippedLog))
-				.offerTo(exporter);
+					.group("bark")
+					.pattern("LL")
+					.pattern("LL")
+					.input('L', woodItem.strippedLog)
+					.criterion("has_logs", InventoryChangedCriterion.Conditions.items(woodItem.strippedLog))
+					.offerTo(exporter);
 		}
 	}
 
-	@Override
-	protected Identifier getRecipeIdentifier(Identifier identifier) {
-		return new Identifier(SakuraRosea.MOD_ID, identifier.getPath());
+	private void generateStone(Consumer<RecipeJsonProvider> exporter, StoneItems stoneItem) {
 	}
+
+	private void generateStoneVariant(Consumer<RecipeJsonProvider> exporter, StoneVariantItems stoneVariantItem, @Nullable BlockItem cutPlainItem) {
+		offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, stoneVariantItem.slab, stoneVariantItem.full);
+		createStairsRecipe(stoneVariantItem.stairs, Ingredient.ofItems(stoneVariantItem.full))
+				.criterion("has_brick", InventoryChangedCriterion.Conditions.items(stoneVariantItem.full))
+				.offerTo(exporter);  // ?? so lame there is no offerStairsRecipe() !!
+		offerWallRecipe(exporter, RecipeCategory.DECORATIONS, stoneVariantItem.wall, stoneVariantItem.full);
+	}
+
+
+
+	@Override
+		protected Identifier getRecipeIdentifier (Identifier identifier){
+			return new Identifier(SakuraRosea.MOD_ID, identifier.getPath());
+		}
 }

@@ -1,6 +1,8 @@
 package com.remotegetaway.sakurarosea.data;
 
+import com.remotegetaway.sakurarosea.init.SakuraRoseaBlocks;
 import com.remotegetaway.sakurarosea.init.SakuraRoseaItems;
+import com.remotegetaway.sakurarosea.init.helpers.StoneItems;
 import com.remotegetaway.sakurarosea.init.helpers.WoodItems;
 import com.remotegetaway.sakurarosea.tag.SakuraRoseaBlockTags;
 import com.remotegetaway.sakurarosea.tag.SakuraRoseaItemTags;
@@ -64,17 +66,19 @@ public class SakuraRoseaItemTagProvider extends FabricTagProvider.ItemTagProvide
 		copy(BlockTags.WOODEN_TRAPDOORS, ItemTags.WOODEN_TRAPDOORS);
 
 
-
 		getOrCreateTagBuilder(SakuraRoseaItemTags.PLANKS_THAT_BURN)
 			.add(SakuraRoseaItems.SAKURA.planks);
-
-
 
 		// wood type tags
 		copy(SakuraRoseaBlockTags.SAKURA_LOGS, SakuraRoseaItemTags.SAKURA_LOGS);
 
 		// wood items
 		addWood(SakuraRoseaItems.SAKURA);
+
+		// stone type tags
+		copy(SakuraRoseaBlockTags.WHITE_BRICKS, SakuraRoseaItemTags.WHITE_BRICKS);
+
+
 	}
 
 	private void addWood(WoodItems woodItem) {

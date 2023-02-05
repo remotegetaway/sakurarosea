@@ -3,6 +3,7 @@ package com.remotegetaway.sakurarosea.item;
 import com.remotegetaway.sakurarosea.SakuraRosea;
 import com.remotegetaway.sakurarosea.init.SakuraRoseaBlocks;
 import com.remotegetaway.sakurarosea.init.SakuraRoseaItems;
+import com.remotegetaway.sakurarosea.init.helpers.StoneItems;
 import com.remotegetaway.sakurarosea.init.helpers.WoodItems;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -34,6 +35,11 @@ public class SakuraRoseaItemGroups {
 	private static final Item NATURAL_SAPLING = Items.MANGROVE_PROPAGULE;
 	private static final Item TOOLS_BOAT = Items.MANGROVE_CHEST_BOAT;
 
+	private static final Item NATURAL_STONE = Items.STONE;
+	private static final Item BUILDING_STONE_ITEMS = Items.MOSSY_STONE_BRICK_WALL;
+
+
+
 	static {
 		ITEM_GROUP_ENTRY_MAPS = new HashMap<>(8);
 
@@ -55,6 +61,9 @@ public class SakuraRoseaItemGroups {
 
 		// Add WoodItems
 		addWoodEntries(SakuraRoseaItems.SAKURA);
+
+		// Add StoneItems
+		addStoneEntries(SakuraRoseaItems.WHITE_BRICKS);
 
 		/*
 		 * Add the items configured above to the Vanilla item groups.
@@ -84,7 +93,7 @@ public class SakuraRoseaItemGroups {
 
 
 		/*
-		 * Also add all the items to Terrestria's own item group.
+		 * Also add all the items to Sakura Rosea's own item group.
 		 */
 		ITEM_GROUP = FabricItemGroup.builder(new Identifier(SakuraRosea.MOD_ID, "items"))
 				.displayName(Text.literal("Sakura Rosea"))
@@ -98,6 +107,18 @@ public class SakuraRoseaItemGroups {
 				}).build();
 	}
 
+
+	private static void addStoneEntries(StoneItems items) {
+		addGroupEntry(items.brick.full, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
+		addGroupEntry(items.brick.stairs, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
+		addGroupEntry(items.brick.slab, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
+		addGroupEntry(items.brick.wall, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
+		addGroupEntry(items.vined.full, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
+		addGroupEntry(items.vined.stairs, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
+		addGroupEntry(items.vined.slab, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
+		addGroupEntry(items.vined.wall, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
+
+	}
 
 	private static void addWoodEntries(WoodItems items) {
 		// BUILDING BLOCKS

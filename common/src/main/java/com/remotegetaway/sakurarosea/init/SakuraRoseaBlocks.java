@@ -2,6 +2,7 @@ package com.remotegetaway.sakurarosea.init;
 
 import com.remotegetaway.sakurarosea.init.helpers.SakuraRoseaRegistry;
 import com.remotegetaway.sakurarosea.block.sapling.SakuraRoseaSaplingGenerator;
+import com.remotegetaway.sakurarosea.init.helpers.StoneBlocks;
 import com.remotegetaway.sakurarosea.init.helpers.WoodBlocks;
 import com.remotegetaway.sakurarosea.init.helpers.WoodColors;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -18,21 +19,18 @@ public class SakuraRoseaBlocks {
 
 	public static WoodBlocks SAKURA;
 
-
 	public static LeavesBlock SAKURA_SHRUB_LEAVES;
 	public static LeavesBlock DARK_SAKURA_LEAVES;
-
 
 	public static SaplingBlock SAKURA_SAPLING;
 	public static SaplingBlock SAKURA_SHRUB_SAPLING;
 	public static SaplingBlock DARK_SAKURA_SAPLING;
 
-
 	public static FlowerPotBlock POTTED_SAKURA_SAPLING;
 	public static FlowerPotBlock POTTED_SAKURA_SHRUB_SAPLING;
 	public static FlowerPotBlock POTTED_DARK_SAKURA_SAPLING;
 
-
+	public static StoneBlocks WHITE_BRICKS;
 
 
 	public static void init() {
@@ -51,11 +49,13 @@ public class SakuraRoseaBlocks {
 		SAKURA_SAPLING = SakuraRoseaRegistry.register("sakura_sapling", new SaplingBlock(new SakuraRoseaSaplingGenerator(() -> SakuraRoseaConfiguredFeatures.SAKURA_TREE), saplingSettings));
 		SAKURA_SHRUB_SAPLING = SakuraRoseaRegistry.register("sakura_shrub_sapling", new SaplingBlock(new SakuraRoseaSaplingGenerator(() -> SakuraRoseaConfiguredFeatures.SAKURA_SHRUB), saplingSettings));
 
-
 		// potted saplings
 		POTTED_SAKURA_SAPLING = SakuraRoseaRegistry.register("potted_sakura_sapling", new FlowerPotBlock(SAKURA_SAPLING, FabricBlockSettings.copyOf(Blocks.POTTED_POPPY)));
 		POTTED_SAKURA_SHRUB_SAPLING = SakuraRoseaRegistry.register("potted_sakura_shrub_sapling", new FlowerPotBlock(SAKURA_SHRUB_SAPLING, FabricBlockSettings.copyOf(Blocks.POTTED_POPPY)));
 		POTTED_DARK_SAKURA_SAPLING = SakuraRoseaRegistry.register("potted_dark_sakura_sapling", new FlowerPotBlock(DARK_SAKURA_SAPLING, FabricBlockSettings.copyOf(Blocks.POTTED_POPPY)));
+
+		// bricks stone extend
+		WHITE_BRICKS = StoneBlocks.register("white_bricks", MapColor.WHITE);
 
 		addFlammables();
 	}

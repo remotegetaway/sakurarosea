@@ -36,6 +36,14 @@
       "textures": {
         "main": "sakurarosea:block/stripped_sakura_log"
       }
+    },
+    "white_bricks": {
+      "base": "sakurarosea:white_bricks",
+      "vanilla_pieces": {
+        "extrapieces:stairs": "sakurarosea:white_bricks_stairs",
+        "extrapieces:slab": "sakurarosea:white_bricks_slab",
+        "extrapieces:wall": "sakurarosea:white_bricks_wall"
+      }
     }
   }
 }
