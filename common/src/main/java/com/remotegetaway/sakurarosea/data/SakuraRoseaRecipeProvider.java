@@ -32,18 +32,26 @@ public class SakuraRoseaRecipeProvider extends FabricRecipeProvider {
 
 	@Override
 	public void generate(Consumer<RecipeJsonProvider> exporter) {
+
+
 		// misc. recipes
-		new ShapelessRecipeJsonBuilder(RecipeCategory.DECORATIONS, SakuraRoseaItems.SAKURA_SAPLING, 1)
-				.input(Items.OAK_SAPLING)
-				.input(Items.STICK)
-				.criterion("has_bryce_sapling", InventoryChangedCriterion.Conditions.items(SakuraRoseaItems.SAKURA_SAPLING))
-				.offerTo(exporter, new Identifier(SakuraRosea.MOD_ID, "sakura_sapling_from_oak_sapling"));
+		new ShapelessRecipeJsonBuilder(RecipeCategory.BREWING, Items.PINK_DYE, 1)
+				.input(SakuraRoseaItems.SAKURA_SAPLING)
+				.criterion("has_sapling", InventoryChangedCriterion.Conditions.items(SakuraRoseaItems.SAKURA_SAPLING))
+				.offerTo(exporter, new Identifier(SakuraRosea.MOD_ID, "pink_dye_from_sakura_sapling"));
+
+		new ShapelessRecipeJsonBuilder(RecipeCategory.BREWING, Items.MAGENTA_DYE, 1)
+				.input(SakuraRoseaItems.DARK_SAKURA_SAPLING)
+				.criterion("has_sapling", InventoryChangedCriterion.Conditions.items(SakuraRoseaItems.DARK_SAKURA_SAPLING))
+				.offerTo(exporter, new Identifier(SakuraRosea.MOD_ID, "magenta_dye_from_dark_sakura_sapling"));
 
 
 		// wood building block recipes
+
 		generateWood(exporter, SakuraRoseaItems.SAKURA, SakuraRoseaItemTags.SAKURA_LOGS);
 
 		// stone building block recipes
+
 		generateStone(exporter, SakuraRoseaItems.WHITE_BRICKS);
 
 	}
@@ -127,15 +135,15 @@ public class SakuraRoseaRecipeProvider extends FabricRecipeProvider {
 	}
 
 	private void generateStone(Consumer<RecipeJsonProvider> exporter, StoneItems stoneItem) {
+		offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, stoneItem.brick.slab, stoneItem.brick.full);
+
+		createStairsRecipe(stoneItem.brick.stairs, Ingredient.ofItems(stoneItem.brick.full))
+				.criterion("has_white_bricks", InventoryChangedCriterion.Conditions.items(stoneItem.brick.full))
+				.offerTo(exporter);  // ?? so lame there is no offerStairsRecipe() !!
+
+		offerWallRecipe(exporter, RecipeCategory.DECORATIONS, stoneItem.brick.wall, stoneItem.brick.full);
 	}
 
-	private void generateStoneVariant(Consumer<RecipeJsonProvider> exporter, StoneVariantItems stoneVariantItem, @Nullable BlockItem cutPlainItem) {
-		offerSlabRecipe(exporter, RecipeCategory.BUILDING_BLOCKS, stoneVariantItem.slab, stoneVariantItem.full);
-		createStairsRecipe(stoneVariantItem.stairs, Ingredient.ofItems(stoneVariantItem.full))
-				.criterion("has_brick", InventoryChangedCriterion.Conditions.items(stoneVariantItem.full))
-				.offerTo(exporter);  // ?? so lame there is no offerStairsRecipe() !!
-		offerWallRecipe(exporter, RecipeCategory.DECORATIONS, stoneVariantItem.wall, stoneVariantItem.full);
-	}
 
 
 
