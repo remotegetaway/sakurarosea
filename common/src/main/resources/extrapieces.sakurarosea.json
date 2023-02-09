@@ -38,7 +38,7 @@
       }
     },
     "white_bricks": {
-      "base": "sakurarosea:white_bricks",
+      "base": "sakurarosea:white_bricks_block",
       "vanilla_pieces": {
         "extrapieces:stairs": "sakurarosea:white_bricks_stairs",
         "extrapieces:slab": "sakurarosea:white_bricks_slab",

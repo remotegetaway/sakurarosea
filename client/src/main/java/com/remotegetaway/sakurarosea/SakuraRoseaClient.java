@@ -5,7 +5,6 @@ import com.terraformersmc.terraform.boat.api.client.TerraformBoatClientHelper;
 import com.terraformersmc.terraform.sign.SpriteIdentifierRegistry;
 import com.terraformersmc.terraform.sign.block.TerraformHangingSignBlock;
 import com.terraformersmc.terraform.sign.block.TerraformSignBlock;
-import com.remotegetaway.sakurarosea.init.SakuraRoseaItems;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -46,6 +45,15 @@ public class SakuraRoseaClient implements ClientModInitializer {
 		// Load the client config if it hasn't been loaded already
 		SakuraRosea.getConfigManager().getClientConfig();
 
+		BlockRenderLayerMap.INSTANCE.putBlocks(
+				DOOR_BLOCK_LAYER,
+				SakuraRoseaBlocks.WHITE.white.door
+		);
+
+		BlockRenderLayerMap.INSTANCE.putBlocks(
+				DOOR_BLOCK_LAYER,
+				SakuraRoseaBlocks.PINK.pink.door
+		);
 
 		BlockRenderLayerMap.INSTANCE.putBlocks(
 				DOOR_BLOCK_LAYER,

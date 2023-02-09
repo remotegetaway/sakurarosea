@@ -68,20 +68,6 @@ public class SakuraRoseaConfiguredFeatures {
 				.build();
 	}
 
-	static TreeFeatureConfig fallenLogOf(WoodBlocks woodBlocks, BlockState sapling, FallenStraightTrunkPlacer trunk) {
-		return fallenLogOf(woodBlocks.log.getDefaultState(), woodBlocks.leaves.getDefaultState(), sapling, trunk);
-	}
-
-	static TreeFeatureConfig fallenLogOf(BlockState log, BlockState leaves, BlockState sapling, FallenStraightTrunkPlacer trunk) {
-		return new TreeFeatureConfig.Builder(
-				SimpleBlockStateProvider.of(log),
-				trunk,
-				SimpleBlockStateProvider.of(leaves),
-				new NoneFoliagePlacer(),
-				new TwoLayersFeatureSize(0, 0, 0))
-
-				.build();
-	}
 
 	static TreeFeatureConfig shrubOf(WoodBlocks woodBlocks, BlockState sapling) {
 		return shrubOf(woodBlocks.log.getDefaultState(), woodBlocks.leaves.getDefaultState(), sapling);

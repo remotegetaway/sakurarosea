@@ -1,8 +1,10 @@
 package com.remotegetaway.sakurarosea.data;
 
 import com.remotegetaway.sakurarosea.init.SakuraRoseaBlocks;
-import com.remotegetaway.sakurarosea.init.helpers.StoneBlocks;
-import com.remotegetaway.sakurarosea.init.helpers.StoneVariantBlocks;
+import com.remotegetaway.sakurarosea.init.helpers.pinkbricks.PinkBrickBlocks;
+import com.remotegetaway.sakurarosea.init.helpers.pinkbricks.PinkBrickVariantBlocks;
+import com.remotegetaway.sakurarosea.init.helpers.whitebricks.WhiteBrickBlocks;
+import com.remotegetaway.sakurarosea.init.helpers.whitebricks.WhiteBrickVariantBlocks;
 import com.remotegetaway.sakurarosea.init.helpers.WoodBlocks;
 import com.remotegetaway.sakurarosea.tag.SakuraRoseaBlockTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -43,7 +45,6 @@ public class SakuraRoseaBlockTagProvider extends FabricTagProvider.BlockTagProvi
 			.add(SakuraRoseaBlocks.SAKURA_SHRUB_SAPLING);
 
 
-
 		// wood building block tags
 		addWood(SakuraRoseaBlockTags.SAKURA_LOGS, SakuraRoseaBlocks.SAKURA);
 
@@ -51,7 +52,8 @@ public class SakuraRoseaBlockTagProvider extends FabricTagProvider.BlockTagProvi
 			.addTag(SakuraRoseaBlockTags.SAKURA_LOGS);
 
 		// stone building block tags
-		addStone(SakuraRoseaBlockTags.WHITE_BRICKS, SakuraRoseaBlocks.WHITE_BRICKS);
+		addStone(SakuraRoseaBlockTags.WHITE_BRICKS, SakuraRoseaBlocks.WHITE);
+		addStone(SakuraRoseaBlockTags.PINK_BRICKS, SakuraRoseaBlocks.PINK);
 	}
 
 
@@ -97,27 +99,43 @@ public class SakuraRoseaBlockTagProvider extends FabricTagProvider.BlockTagProvi
 		}
 	}
 
-	private void addStone(TagKey<Block> stoneTag, StoneBlocks stoneBlock) {
+	private void addStone(TagKey<Block> stoneTag, WhiteBrickBlocks stoneBlock) {
 		FabricTagBuilder stoneBuilder = getOrCreateTagBuilder(stoneTag);
-		if (stoneBlock.brick != null) {
-			stoneBuilder.add(stoneBlock.brick.full);
-			addStoneVariant(stoneBlock.brick);
-		}
-		if (stoneBlock.vined != null) {
-			stoneBuilder.add(stoneBlock.vined.full);
-			addStoneVariant(stoneBlock.vined);
-		}
+		stoneBuilder.add(stoneBlock.white.block);
+		addStoneVariant(stoneBlock.white);
 	}
 
-	private void addStoneVariant(StoneVariantBlocks stoneVariantBlock) {
-		getOrCreateTagBuilder(BlockTags.SLABS).add(stoneVariantBlock.slab);
+	private void addStoneVariant(WhiteBrickVariantBlocks stoneVariantBlock) {
+		getOrCreateTagBuilder(BlockTags.SLABS).add(stoneVariantBlock.block);
 		getOrCreateTagBuilder(BlockTags.STAIRS).add(stoneVariantBlock.stairs);
 		getOrCreateTagBuilder(BlockTags.WALLS).add(stoneVariantBlock.wall);
+		getOrCreateTagBuilder(BlockTags.DOORS).add(stoneVariantBlock.door);
 
 		getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
-				.add(stoneVariantBlock.full)
+				.add(stoneVariantBlock.block)
 				.add(stoneVariantBlock.slab)
-				.add(stoneVariantBlock.stairs);
-		// Adding to WALLS does this for PICKAXE_MINEABLE.
+				.add(stoneVariantBlock.stairs)
+				.add(stoneVariantBlock.door);
 	}
+
+	private void addStone(TagKey<Block> stoneTag, PinkBrickBlocks stoneBlock) {
+		FabricTagBuilder stoneBuilder = getOrCreateTagBuilder(stoneTag);
+
+		stoneBuilder.add(stoneBlock.pink.block);
+		addStoneVariant(stoneBlock.pink);
+	}
+
+	private void addStoneVariant(PinkBrickVariantBlocks stoneVariantBlock) {
+		getOrCreateTagBuilder(BlockTags.SLABS).add(stoneVariantBlock.block);
+		getOrCreateTagBuilder(BlockTags.STAIRS).add(stoneVariantBlock.stairs);
+		getOrCreateTagBuilder(BlockTags.WALLS).add(stoneVariantBlock.wall);
+		getOrCreateTagBuilder(BlockTags.DOORS).add(stoneVariantBlock.door);
+
+		getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
+				.add(stoneVariantBlock.block)
+				.add(stoneVariantBlock.slab)
+				.add(stoneVariantBlock.stairs)
+				.add(stoneVariantBlock.door);
+	}
+
 }

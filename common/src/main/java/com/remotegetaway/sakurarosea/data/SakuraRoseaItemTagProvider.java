@@ -1,8 +1,8 @@
 package com.remotegetaway.sakurarosea.data;
 
-import com.remotegetaway.sakurarosea.init.SakuraRoseaBlocks;
 import com.remotegetaway.sakurarosea.init.SakuraRoseaItems;
-import com.remotegetaway.sakurarosea.init.helpers.StoneItems;
+import com.remotegetaway.sakurarosea.init.helpers.pinkbricks.PinkBrickItems;
+import com.remotegetaway.sakurarosea.init.helpers.whitebricks.WhiteBrickItems;
 import com.remotegetaway.sakurarosea.init.helpers.WoodItems;
 import com.remotegetaway.sakurarosea.tag.SakuraRoseaBlockTags;
 import com.remotegetaway.sakurarosea.tag.SakuraRoseaItemTags;
@@ -75,8 +75,13 @@ public class SakuraRoseaItemTagProvider extends FabricTagProvider.ItemTagProvide
 		// wood items
 		addWood(SakuraRoseaItems.SAKURA);
 
+		// stone items
+		addStone(SakuraRoseaItems.WHITE);
+		addStone(SakuraRoseaItems.PINK);
+
 		// stone type tags
 		copy(SakuraRoseaBlockTags.WHITE_BRICKS, SakuraRoseaItemTags.WHITE_BRICKS);
+		copy(SakuraRoseaBlockTags.PINK_BRICKS, SakuraRoseaItemTags.PINK_BRICKS);
 
 
 	}
@@ -90,4 +95,9 @@ public class SakuraRoseaItemTagProvider extends FabricTagProvider.ItemTagProvide
 			getOrCreateTagBuilder(ItemTags.CHEST_BOATS).add(woodItem.chestBoat);
 		}
 	}
+
+	private void addStone(WhiteBrickItems stoneItem) {}
+
+	private void addStone(PinkBrickItems stoneItem) {}
+
 }

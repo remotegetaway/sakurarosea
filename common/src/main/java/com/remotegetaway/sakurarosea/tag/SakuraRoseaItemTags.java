@@ -11,7 +11,10 @@ public final class SakuraRoseaItemTags {
 	public static final TagKey<Item> SAKURA_LOGS = SakuraRoseaItemTags.of("sakura_logs");
 	public static final TagKey<Item> PLANKS_THAT_BURN = SakuraRoseaItemTags.of(Identifier.of("c", "planks_that_burn"));
 
-	public static final TagKey<Item> WHITE_BRICKS = SakuraRoseaItemTags.of(Identifier.of("b", "white_bricks"));
+	public static final TagKey<Item> WHITE_BRICKS = SakuraRoseaItemTags.of("white_bricks");
+
+	public static final TagKey<Item> PINK_BRICKS = SakuraRoseaItemTags.of("pink_bricks");
+
 	@SuppressWarnings("UnnecessaryReturnStatement")
 	private SakuraRoseaItemTags() {
 		return;

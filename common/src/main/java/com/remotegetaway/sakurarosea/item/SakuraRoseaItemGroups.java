@@ -3,7 +3,8 @@ package com.remotegetaway.sakurarosea.item;
 import com.remotegetaway.sakurarosea.SakuraRosea;
 import com.remotegetaway.sakurarosea.init.SakuraRoseaBlocks;
 import com.remotegetaway.sakurarosea.init.SakuraRoseaItems;
-import com.remotegetaway.sakurarosea.init.helpers.StoneItems;
+import com.remotegetaway.sakurarosea.init.helpers.pinkbricks.PinkBrickItems;
+import com.remotegetaway.sakurarosea.init.helpers.whitebricks.WhiteBrickItems;
 import com.remotegetaway.sakurarosea.init.helpers.WoodItems;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -34,8 +35,6 @@ public class SakuraRoseaItemGroups {
 	private static final Item NATURAL_LOG = Items.MANGROVE_LOG;
 	private static final Item NATURAL_SAPLING = Items.MANGROVE_PROPAGULE;
 	private static final Item TOOLS_BOAT = Items.MANGROVE_CHEST_BOAT;
-
-	private static final Item NATURAL_STONE = Items.STONE;
 	private static final Item BUILDING_STONE_ITEMS = Items.MOSSY_STONE_BRICK_WALL;
 
 
@@ -58,12 +57,20 @@ public class SakuraRoseaItemGroups {
 		addGroupEntry(SakuraRoseaBlocks.SAKURA_SAPLING, ItemGroups.NATURAL, NATURAL_SAPLING);
 		addGroupEntry(SakuraRoseaBlocks.SAKURA_SHRUB_SAPLING, ItemGroups.NATURAL, NATURAL_SAPLING);
 
+		// bricks and clay
+		addGroupEntry(SakuraRoseaItems.WHITE_BRICK, ItemGroups.INGREDIENTS);
+		addGroupEntry(SakuraRoseaItems.WHITE_CLAY_BALL, ItemGroups.INGREDIENTS);
+
+		addGroupEntry(SakuraRoseaItems.PINK_BRICK, ItemGroups.INGREDIENTS);
+		addGroupEntry(SakuraRoseaItems.PINK_CLAY_BALL, ItemGroups.INGREDIENTS);
 
 		// Add WoodItems
 		addWoodEntries(SakuraRoseaItems.SAKURA);
 
-		// Add StoneItems
-		addStoneEntries(SakuraRoseaItems.WHITE_BRICKS);
+		// Add PinkBrickItems
+		addStoneEntries(SakuraRoseaItems.WHITE);
+
+		addStoneEntries(SakuraRoseaItems.PINK);
 
 		/*
 		 * Add the items configured above to the Vanilla item groups.
@@ -108,17 +115,22 @@ public class SakuraRoseaItemGroups {
 	}
 
 
-	private static void addStoneEntries(StoneItems items) {
-		addGroupEntry(items.brick.full, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
-		addGroupEntry(items.brick.stairs, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
-		addGroupEntry(items.brick.slab, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
-		addGroupEntry(items.brick.wall, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
-		addGroupEntry(items.vined.full, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
-		addGroupEntry(items.vined.stairs, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
-		addGroupEntry(items.vined.slab, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
-		addGroupEntry(items.vined.wall, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
-
+	private static void addStoneEntries(WhiteBrickItems items) {
+		addGroupEntry(items.white.block, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
+		addGroupEntry(items.white.slab, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
+		addGroupEntry(items.white.stairs, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
+		addGroupEntry(items.white.wall, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
+		addGroupEntry(items.white.door, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
 	}
+
+	private static void addStoneEntries(PinkBrickItems items) {
+		addGroupEntry(items.pink.block, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
+		addGroupEntry(items.pink.slab, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
+		addGroupEntry(items.pink.stairs, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
+		addGroupEntry(items.pink.wall, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
+		addGroupEntry(items.pink.door, ItemGroups.BUILDING_BLOCKS, BUILDING_STONE_ITEMS);
+	}
+
 
 	private static void addWoodEntries(WoodItems items) {
 		// BUILDING BLOCKS

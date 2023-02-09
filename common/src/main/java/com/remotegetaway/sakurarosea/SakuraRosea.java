@@ -11,6 +11,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 
+
 public class SakuraRosea implements ModInitializer {
 	public static final String MOD_ID = "sakurarosea";
 	public static final Logger LOGGER = LogManager.getLogger(MOD_ID);

@@ -1,10 +1,9 @@
 package com.remotegetaway.sakurarosea.init;
 
-import com.remotegetaway.sakurarosea.init.helpers.SakuraRoseaRegistry;
+import com.remotegetaway.sakurarosea.init.helpers.*;
 import com.remotegetaway.sakurarosea.block.sapling.SakuraRoseaSaplingGenerator;
-import com.remotegetaway.sakurarosea.init.helpers.StoneBlocks;
-import com.remotegetaway.sakurarosea.init.helpers.WoodBlocks;
-import com.remotegetaway.sakurarosea.init.helpers.WoodColors;
+import com.remotegetaway.sakurarosea.init.helpers.pinkbricks.PinkBrickBlocks;
+import com.remotegetaway.sakurarosea.init.helpers.whitebricks.WhiteBrickBlocks;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.minecraft.block.*;
@@ -30,7 +29,8 @@ public class SakuraRoseaBlocks {
 	public static FlowerPotBlock POTTED_SAKURA_SHRUB_SAPLING;
 	public static FlowerPotBlock POTTED_DARK_SAKURA_SAPLING;
 
-	public static StoneBlocks WHITE_BRICKS;
+	public static WhiteBrickBlocks WHITE;
+	public static PinkBrickBlocks PINK;
 
 
 	public static void init() {
@@ -54,8 +54,9 @@ public class SakuraRoseaBlocks {
 		POTTED_SAKURA_SHRUB_SAPLING = SakuraRoseaRegistry.register("potted_sakura_shrub_sapling", new FlowerPotBlock(SAKURA_SHRUB_SAPLING, FabricBlockSettings.copyOf(Blocks.POTTED_POPPY)));
 		POTTED_DARK_SAKURA_SAPLING = SakuraRoseaRegistry.register("potted_dark_sakura_sapling", new FlowerPotBlock(DARK_SAKURA_SAPLING, FabricBlockSettings.copyOf(Blocks.POTTED_POPPY)));
 
-		// bricks stone extend
-		WHITE_BRICKS = StoneBlocks.register("white_bricks", MapColor.WHITE);
+		// white bricks
+		WHITE = WhiteBrickBlocks.register("white", MapColor.WHITE);
+		PINK = PinkBrickBlocks.register("pink", MapColor.PINK);
 
 		addFlammables();
 	}
