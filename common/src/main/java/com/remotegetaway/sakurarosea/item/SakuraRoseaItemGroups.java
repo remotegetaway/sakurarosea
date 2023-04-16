@@ -105,7 +105,7 @@ public class SakuraRoseaItemGroups {
 		ITEM_GROUP = FabricItemGroup.builder(new Identifier(SakuraRosea.MOD_ID, "items"))
 				.displayName(Text.literal("Sakura Rosea"))
 				.icon(() -> SakuraRoseaBlocks.SAKURA_SAPLING.asItem().getDefaultStack())
-				.entries((enabledFeatures, entries, operatorEnabled) -> {
+				.entries((context, entries) -> {
 					ITEM_GROUP_ENTRY_MAPS.values().stream()
 							.map(HashMap::values).flatMap(Collection::stream)
 							.map(ItemGroupEntries::getCollection).flatMap(Collection::stream)

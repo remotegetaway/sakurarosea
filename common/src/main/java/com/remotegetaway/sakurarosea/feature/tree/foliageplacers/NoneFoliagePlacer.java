@@ -29,8 +29,8 @@ public class NoneFoliagePlacer extends FoliagePlacer {
 	}
 
 	@Override
-	protected void generate(TestableWorld world, BiConsumer<BlockPos, BlockState> replacer, Random random, TreeFeatureConfig config, int trunkHeight, TreeNode treeNode, int foliageHeight, int radius, int offset) {
-
+	protected void generate(TestableWorld world, BlockPlacer placer, Random random, TreeFeatureConfig config, int trunkHeight, FoliagePlacer.TreeNode treeNode, int foliageHeight, int radius, int offset) {
+		// It's the "None" placer, after all...
 	}
 
 	@Override

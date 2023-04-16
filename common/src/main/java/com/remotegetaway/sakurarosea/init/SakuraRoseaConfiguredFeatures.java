@@ -93,53 +93,6 @@ public class SakuraRoseaConfiguredFeatures {
 				.build();
 	}
 
-	static TreeFeatureConfig spruceOf(WoodBlocks woodBlocks, BlockState sapling) {
-		return spruceOf(woodBlocks.log.getDefaultState(), woodBlocks.leaves.getDefaultState(), sapling);
-	}
-
-	static TreeFeatureConfig spruceOf(BlockState log, BlockState leaves, BlockState sapling) {
-		return new TreeFeatureConfig.Builder(
-				SimpleBlockStateProvider.of(log),
-				new StraightTrunkPlacer(5, 2, 1),
-				SimpleBlockStateProvider.of(leaves),
-				new PredictiveSpruceFoliagePlacer(UniformIntProvider.create(1, 2), UniformIntProvider.create(0, 2), UniformIntProvider.create(1, 1)),
-				new TwoLayersFeatureSize(2, 0, 2))
-
-				.ignoreVines()
-				.build();
-	}
-
-	static TreeFeatureConfig tallSpruceOf(WoodBlocks woodBlocks, BlockState sapling, int minHeight, int extraRandomHeight1, int extraRandomHeight2, int minLeavesRadius, int maxLeavesRadius, int minBareHeight, int maxBareHeight) {
-		return tallSpruceOf(woodBlocks.log.getDefaultState(), woodBlocks.leaves.getDefaultState(), sapling, minHeight, extraRandomHeight1, extraRandomHeight2, minLeavesRadius, maxLeavesRadius, minBareHeight, maxBareHeight);
-	}
-
-	static TreeFeatureConfig tallSpruceOf(BlockState log, BlockState leaves, BlockState sapling, int minHeight, int extraRandomHeight1, int extraRandomHeight2, int minLeavesRadius, int maxLeavesRadius, int minBareHeight, int maxBareHeight) {
-		return new TreeFeatureConfig.Builder(
-				SimpleBlockStateProvider.of(log),
-				new StraightTrunkPlacer(minHeight, extraRandomHeight1, extraRandomHeight2),
-				SimpleBlockStateProvider.of(leaves),
-				new PredictiveSpruceFoliagePlacer(UniformIntProvider.create(minLeavesRadius, maxLeavesRadius), UniformIntProvider.create(0, 2), UniformIntProvider.create(minBareHeight, maxBareHeight)),
-				new TwoLayersFeatureSize(2, 0, 2))
-
-				.ignoreVines()
-				.build();
-	}
-
-	static QuarteredMegaTreeConfig giantSpruceOf(WoodBlocks woodBlocks, BlockState sapling, int minHeight, int extraRandomHeight1, int extraRandomHeight2, int minLeavesRadius, int maxLeavesRadius, int minBareHeight, int maxBareHeight) {
-		if (!woodBlocks.hasQuarterLog()) {
-			throw new IllegalArgumentException("giantSpruceOf() requires WoodBlocks with defined Quarter Logs: " + woodBlocks.getName());
-		}
-		return new QuarteredMegaTreeConfig(new TreeFeatureConfig.Builder(
-				SimpleBlockStateProvider.of(woodBlocks.log),
-				new MegaTrunkPlacer(minHeight, extraRandomHeight1, extraRandomHeight2),
-				SimpleBlockStateProvider.of(woodBlocks.leaves),
-				new PredictiveSpruceFoliagePlacer(UniformIntProvider.create(minLeavesRadius, maxLeavesRadius), UniformIntProvider.create(0, 2), UniformIntProvider.create(minBareHeight, maxBareHeight)),
-				new TwoLayersFeatureSize(2, 1, 2))
-				.ignoreVines()
-				.build(),
-				SimpleBlockStateProvider.of(woodBlocks.quarterLog),
-				SimpleBlockStateProvider.of(woodBlocks.wood));
-	}
 
 	public static RegistryKey<ConfiguredFeature<?, ?>> createRegistryKey(String name) {
 		return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, Identifier.of(SakuraRosea.MOD_ID, name));

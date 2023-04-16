@@ -26,10 +26,8 @@ public class PinkBrickVariantBlocks {
 		blocks.stairs = SakuraRoseaRegistry.register(shapedName + "_bricks_stairs", new StairsBlock(blocks.block.getDefaultState(), FabricBlockSettings.copyOf(Blocks.COBBLESTONE_STAIRS).mapColor(color)));
 		blocks.wall = SakuraRoseaRegistry.register(shapedName + "_bricks_wall", new WallBlock(FabricBlockSettings.copyOf(Blocks.COBBLESTONE_WALL).mapColor(color)));
 		blocks.door = SakuraRoseaRegistry.register(name + "_bricks_door",
-														new DoorBlock(FabricBlockSettings.copyOf(Blocks.OAK_DOOR)
-																.mapColor(color),
-															SoundEvents.BLOCK_IRON_DOOR_CLOSE,
-															SoundEvents.BLOCK_IRON_DOOR_OPEN));
+														new DoorBlock(FabricBlockSettings.copyOf(Blocks.IRON_DOOR)
+																.mapColor(color), BlockSetType.STONE));
 
 		return blocks;
 	}

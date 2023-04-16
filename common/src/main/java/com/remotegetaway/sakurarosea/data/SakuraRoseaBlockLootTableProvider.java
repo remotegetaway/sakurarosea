@@ -7,8 +7,8 @@ import com.remotegetaway.sakurarosea.init.helpers.whitebricks.WhiteBrickBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
 import net.minecraft.block.SaplingBlock;
+import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.Nullable;
 
 public class SakuraRoseaBlockLootTableProvider extends FabricBlockLootTableProvider {
 	protected SakuraRoseaBlockLootTableProvider(FabricDataOutput dataOutput) {

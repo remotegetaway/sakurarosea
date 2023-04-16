@@ -34,18 +34,17 @@ public class CanopyFoliagePlacer extends FoliagePlacer {
 	}
 
 	@Override
-	protected void generate(TestableWorld world, BiConsumer<BlockPos, BlockState> replacer, Random random, TreeFeatureConfig config, int trunkHeight, TreeNode treeNode, int foliageHeight, int radius, int offset) {
+	protected void generate(TestableWorld world, BlockPlacer placer, Random random, TreeFeatureConfig config, int trunkHeight, FoliagePlacer.TreeNode treeNode, int foliageHeight, int radius, int offset) {
 
 		radius = treeNode.getFoliageRadius();
 		BlockPos centerPos = treeNode.getCenter();
-
 		Shapes.hemiEllipsoid(radius * 2, radius * 2, radius * 2.5)
 				.applyLayer(new SubtractLayer(Shapes.hemiEllipsoid(radius * 2  - 2, radius * 2 - 2, radius * 1.5)))
 				.applyLayer(TranslateLayer.of(Position.of(centerPos.down())))
 				.stream().filter(AirValidator.of(world))
 				.forEach(position -> {
 					BlockPos pos = position.toBlockPos();
-					replacer.accept(pos, config.foliageProvider.get(random, pos));
+					placer.placeBlock(pos, config.foliageProvider.get(random, pos));
 				});
 	}
 
